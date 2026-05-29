@@ -7,3 +7,13 @@ console.log('EXECUTED!');
 
 // const person: string = 'Burak';
 // const count: number = 43;
+
+
+//============================================================
+
+// Architectural pattern:
+// Backend: MVC(Module View Controller), DI
+// Frontend: MVP
+
+
+// Design pattern: Middleware, Decorator
