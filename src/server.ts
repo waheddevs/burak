@@ -1,4 +1,4 @@
-// console.log('EXECUTED!');
+console.log('EXECUTED!');
 
 // import moment from 'moment';
 
