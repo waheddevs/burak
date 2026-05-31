@@ -1,19 +1,6 @@
-console.log('EXECUTED!');
+import dotenv from 'dotenv';
+dotenv.config();
 
-// import moment from 'moment';
+console.log('PORT:', process.env.PORT);
 
-// const currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
-// console.log(`Current date and time: ${currentDate}`);
-
-// const person: string = 'Burak';
-// const count: number = 43;
-
-
-//============================================================
-
-// Architectural pattern:
-// Backend: MVC(Module View Controller), DI
-// Frontend: MVP
-
-
-// Design pattern: Middleware, Decorator
+console.log('MONGO_URL:', process.env.MONGO_URL);
