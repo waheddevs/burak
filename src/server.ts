@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 dotenv.config();
-const dns = require("dns");
-import app from './app';
 
-// ISP/router DNS often blocks MongoDB Atlas SRV lookups
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+// Force Google DNS - MUST be at the VERY TOP
+import dns from 'dns';
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 import mongoose from 'mongoose';
+import app from './app';
 
 mongoose.connect(process.env.MONGO_URL as string, {})
 .then((data) => {
