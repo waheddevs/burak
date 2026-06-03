@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { T } from '../libs/common';
+import { T } from '../libs/types/common'
 
 //  REACT
 
