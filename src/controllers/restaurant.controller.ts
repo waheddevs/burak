@@ -53,14 +53,9 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     const result = await memberService.proceessSignup(newMember);
 
     res.send('Signup Processed!');
-  } catch (err: any) {
-    console.log('ERROR on processSignup: ', err);
-    if (err.code === 11000) {
-      const field = Object.keys(err.keyPattern)[0];
-      res.status(409).json({ message: `${field} already exists. Please use a different value.` });
-    } else {
-      res.status(500).json({ message: 'Internal server error' });
-    }
+  } catch (err) {
+    console.log('ERROR, processSignup: ', err);
+    res.send(err);
   }
 };
 
