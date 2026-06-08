@@ -42,7 +42,6 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
 
-
     res.send(result);
   } catch (err) {
     console.log('ERROR on processLogin: ', err);

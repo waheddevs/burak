@@ -42,6 +42,7 @@ class MemberService {
       { memberNick: 1, memberPassword: 1 }
     )
     .exec();
+
     if(!member) {
       throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
     }
@@ -50,8 +51,6 @@ class MemberService {
     .compare(
       input.memberPassword,
       member.memberPassword);
-
-
 
     if(!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
