@@ -16,3 +16,10 @@ Rest API
 GraphQL API
 
 */
+
+/*
+
+    Tradiditional Frontend development   =>   BSSR  [Admin]   (EJS)
+    Modern Frontend development          =>   SPA   [User]    (REACT)
+
+*/
