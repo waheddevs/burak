@@ -13,14 +13,9 @@ function hasProperty(obj: object, key: string): boolean {
     return key in obj;
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));  // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "color"));  // false
-console.log(hasProperty({ age: 25, city: "Tashkent" }, "age"));   // true
-console.log(hasProperty({}, "name"));                              // false
-
-
-
-
+console.log(hasProperty({ name: "MERS", model: "350" }, "model"));
+console.log(hasProperty({ name: "CHEVROLET", model: "COBALT" }, "model"));
+console.log(hasProperty({ age: 25, city: "Jizzakh" }, "age"));
 
 
 
