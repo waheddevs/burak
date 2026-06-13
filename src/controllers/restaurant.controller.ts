@@ -103,12 +103,12 @@ restaurantController.logout = async (
   res: Response
 ) => {
   try {
-    console.log('processLogin');
+    console.log('Logout');
     req.session.destroy(function ()  {
       res.redirect('/admin');
     })
   } catch (err) {
-    console.log('ERROR on processLogin: ', err);
+    console.log('ERROR on Logout: ', err);
       res.redirect('/admin');
   }
 };
@@ -118,13 +118,13 @@ restaurantController.checkAuthSession = async (
   res: Response
 ) => {
   try {
-    console.log('processLogin');
+    console.log('checkAuthSession');
     if(req.session?.member)
       res.send(`<script> alert("${req.session.member.memberNick}") </script>`);
     else
       res.send(`<script> alert("${Message.NOT_AUTHENTICATED}") </script>`)
   } catch (err) {
-    console.log('ERROR on processLogin: ', err);
+    console.log('ERROR on checkAuthSession: ', err);
     res.send(err);
   }
 };
