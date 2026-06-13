@@ -51,3 +51,10 @@ GraphQL API
     Modern Frontend development          =>   SPA   [User]    (REACT)
 
 */
+
+/*
+
+Cookies
+    request join
+    self destroy
+*/

@@ -3,7 +3,7 @@ import { T } from '../libs/types/common'
 import MemberService from '../models/Member.service'
 import { AdminRequest, LoginInput, MemberInput } from '../libs/types/member';
 import { MemberType } from '../libs/enums/member.enum';
-import { Message } from '../libs/Errors';
+import Errors, { Message } from '../libs/Errors';
 
 const memberService = new MemberService();
 
@@ -18,6 +18,7 @@ restaurantController.goHome = (
     // response => send | json | render | redirect | end
   } catch (err) {
     console.log('ERROR on goHome: ', err);
+    res.redirect('/admin');
   }
 };
 
@@ -30,6 +31,7 @@ restaurantController.getSignup = (
     res.render('signup');
   } catch (err) {
     console.log('ERROR on getSignup: ', err);
+    res.redirect('/admin');
   }
 };
 
@@ -42,6 +44,7 @@ restaurantController.getLogin = (
     res.render('login');
   } catch (err) {
     console.log('ERROR on getLogin: ', err);
+    res.redirect('/admin')
   }
 };
 
@@ -63,9 +66,13 @@ restaurantController.processSignup = async (
     });
   } catch (err) {
     console.log('ERROR, processSignup: ', err);
-    res.send(err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG
+    res.send(
+      `<script> alert("${message}"); window.location.replace ('admin/signup) </script>`
+    );
   }
-};
+  };
 
 restaurantController.processLogin = async (
   req: AdminRequest,
@@ -83,7 +90,26 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log('ERROR on processLogin: ', err);
-    res.send(err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG
+    res.send(
+      `<script> alert("${message}"); window.location.replace ('admin/login) </script>`
+    );
+  }
+};
+
+restaurantController.logout = async (
+  req: AdminRequest,
+  res: Response
+) => {
+  try {
+    console.log('processLogin');
+    req.session.destroy(function ()  {
+      res.redirect('/admin');
+    })
+  } catch (err) {
+    console.log('ERROR on processLogin: ', err);
+      res.redirect('/admin');
   }
 };
 
