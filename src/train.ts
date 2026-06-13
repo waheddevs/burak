@@ -31,6 +31,7 @@ Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun 'tru
 
 // Masalaning yechimi:
 
+/*
 function hasProperty(obj: object, key: string): boolean {
     return key in obj;
 }
@@ -38,7 +39,7 @@ function hasProperty(obj: object, key: string): boolean {
 console.log(hasProperty({ name: "MERS", model: "350" }, "model"));
 console.log(hasProperty({ name: "CHEVROLET", model: "COBALT" }, "model"));
 console.log(hasProperty({ age: 25, city: "Jizzakh" }, "age"));
-
+*/
 
 
 //=========================================================================================================================================
