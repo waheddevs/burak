@@ -55,7 +55,7 @@ console.log(hasProperty({ age: 25, city: "Jizzakh" }, "age"));
 
 */
 
-/*
+/* Requests:
 
 Traditional API
 Rest API
@@ -75,4 +75,13 @@ GraphQL API
 Cookies
     request join
     self destroy
+*/
+
+/*
+VALIDATIONS
+
+    Frontend validation
+    Backend validation
+    Database validation
+
 */
