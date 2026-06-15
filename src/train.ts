@@ -1,3 +1,28 @@
+/* S-TASK
+
+Shunday function yozing, u numberlardan tashkil topgan list qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missing_number([3, 0, 1]) return 2
+
+*/
+
+// Masalaning yechimi:
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = nums.reduce((acc, x) => acc + x, 0);
+  return expectedSum - actualSum;
+}
+
+console.log(missingNumber([5, 0, 3]));
+console.log(missingNumber([0, 4, 7]));
+
+
+
+
+
+//=========================================================================================================================================
+
 /* R-TASK
 
 Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
@@ -7,6 +32,7 @@ MASALAN: calculate("1+3") return 4;
 
 // Masalaning yechimi:
 
+/*
 function calculate(expression: string): number {
     const [a, b] = expression.split("+").map(Number);
     return a + b;
@@ -14,7 +40,7 @@ function calculate(expression: string): number {
 
 console.log(calculate("4+5"));
 console.log(calculate("11+35"));
-
+*/
 
 
 
