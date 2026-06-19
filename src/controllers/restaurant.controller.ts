@@ -59,7 +59,7 @@ restaurantController.processSignup = async (
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
     const newMember: MemberInput = req.body;
-    newMember.memberImage = file?.path
+    newMember.memberImage = file?.path.replace(/\\/g, '/');
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.proceessSignup(newMember);
     // TODO: SESSIONS AUTHENTICATION

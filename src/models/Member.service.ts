@@ -53,7 +53,7 @@ class MemberService {
   }
 
 
-  /* BSSR */
+  /* SSR */
   public async proceessSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
       .findOne({memberType: MemberType.RESTAURANT})
