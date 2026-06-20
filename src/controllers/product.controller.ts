@@ -14,7 +14,9 @@ const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log('getAllProducts');
-    res.render('products');
+    const data = await productService.getAllProducts();
+
+    res.render('products', { products: data });
   } catch (err) {
     console.log('ERROR, signup: ', err);
     if(err instanceof Errors) res.status(err.code).json(err);
@@ -55,7 +57,6 @@ productController.updateChoosenProduct = async (req: Request, res: Response) => 
   try {
     console.log('updateChoosenProduct');
     const id = req.params.id;
-    console.log('id', id);
 
     const result = await productService.updateChoosenProduct(id as string, req.body)
 
@@ -66,7 +67,6 @@ productController.updateChoosenProduct = async (req: Request, res: Response) => 
     else res.status(Errors.standard.code).json(Errors.standard)
   }
 };
-
 
 
 export default productController;
