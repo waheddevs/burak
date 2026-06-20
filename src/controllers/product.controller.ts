@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, response, Response } from 'express';
 import Errors, { HttpCode, Message } from "../libs/Errors"
 import { T } from "../libs/types/common";
 import ProductService from '../models/Product.service';
@@ -22,30 +22,31 @@ productController.getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
-productController.createNewProduct = async (req: AdminRequest, res: Response) => {
+productController.createNewProduct = async (
+  req: AdminRequest,
+  res: Response
+) => {
   try {
     console.log('createNewProduct');
-    console.log('req.files:', req.files)
-
     if(!req.files?.length)
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
     const data: ProductInput = req.body;
-    data.productImages = req.files.map(ele => {
+    data.productImages = req.files?.map((ele) => {
       return ele.path.replace(/\\/g, '/');
     })
 
     await productService.createNewProduct(data);
 
     res.send(
-      `<script> alert("Succesful creation"); window.location.replace ('admin/product/all) </script>`
+      `<script> alert("Succesful creation"); window.location.replace('/admin/product/all') </script>`
     );
   } catch (err) {
     console.log('ERROR, signup: ', err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert(${message}); window.location.replace ('admin/product/all) </script>`
+      `<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`
     );
   }
 };
@@ -53,7 +54,12 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
 productController.updateChoosenProduct = async (req: Request, res: Response) => {
   try {
     console.log('updateChoosenProduct');
+    const id = req.params.id;
+    console.log('id', id);
 
+    const result = await productService.updateChoosenProduct(id as string, req.body)
+
+    res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
     console.log('ERROR, signup: ', err);
     if(err instanceof Errors) res.status(err.code).json(err);
