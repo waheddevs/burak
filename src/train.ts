@@ -1,3 +1,27 @@
+/* T-TASK
+
+Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+
+*/
+
+// Masalaning yechimi:
+
+function mergeSortedArrays(nums: number[] , numbers: number[]): number[] {
+    return [...nums, ...numbers].sort(( a, b ) => a - b );
+}
+
+console.log(mergeSortedArrays([ 0, 5, 15, 18 ], [ 1, 2, 6, 10 ]))
+
+
+
+
+
+//=========================================================================================================================================
 /* S-TASK
 
 Shunday function yozing, u numberlardan tashkil topgan list qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
@@ -7,6 +31,7 @@ MASALAN: missing_number([3, 0, 1]) return 2
 
 // Masalaning yechimi:
 
+/*
 function missingNumber(nums: number[]): number {
   const n = nums.length;
   const expectedSum = (n * (n + 1)) / 2;
@@ -16,7 +41,7 @@ function missingNumber(nums: number[]): number {
 
 console.log(missingNumber([5, 0, 3]));
 console.log(missingNumber([0, 4, 7]));
-
+*/
 
 
 
