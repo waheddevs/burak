@@ -49,4 +49,10 @@ routerAdmin.get(
   restaurantController.getUsers
 );
 
+routerAdmin.post(
+  '/user/edit', 
+  restaurantController.verifyRestaurant,
+  restaurantController.updateChoosenUser
+);
+
 export default routerAdmin;
