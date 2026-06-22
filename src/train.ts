@@ -1,3 +1,37 @@
+/* U-TASK
+
+Shunday function tuzing, uni number parametri bo'lsin.
+Va bu function berilgan parametrgacha, 0'dan boshlab
+oraliqda nechta toq sonlar borligini aniqlab return qilsin.
+
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud.
+Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+
+*/
+
+// Masalaning yechimi:
+
+function sumOdds(num: number): number {
+    let count = 0;
+    for (let i = 0; i < num; i++) {
+        if (i % 2 !== 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(sumOdds(5))
+console.log(sumOdds(8))
+
+
+
+
+//=========================================================================================================================================
+
 /* T-TASK
 
 Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
@@ -11,17 +45,19 @@ Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab
 
 // Masalaning yechimi:
 
+/*
 function mergeSortedArrays(nums: number[] , numbers: number[]): number[] {
     return [...nums, ...numbers].sort(( a, b ) => a - b );
 }
 
 console.log(mergeSortedArrays([ 0, 5, 15, 18 ], [ 1, 2, 6, 10 ]))
-
+*/
 
 
 
 
 //=========================================================================================================================================
+
 /* S-TASK
 
 Shunday function yozing, u numberlardan tashkil topgan list qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
