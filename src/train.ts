@@ -22,7 +22,7 @@ function countChars(str: string): Record<string, number> {
     return counts;
 }
 
-console.log(countChars('butterfly'));
+console.log(countChars('butterfly'))
 
 
 
