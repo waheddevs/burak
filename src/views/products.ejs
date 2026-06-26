@@ -90,6 +90,7 @@
           </div>
         </div>
         <form
+        onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -184,6 +185,7 @@
                   name="productImages"
                   class="image-one"
                   required
+                  onhchange="previewFileHandler(this, 1)"
                 />
               </div>
               <div class="upload-img-box">
@@ -193,6 +195,7 @@
                   id="file"
                   name="productImages"
                   class="image-two"
+                  onhchange="previewFileHandler(this, 2)"
                 />
               </div>
               <div class="upload-img-box">
@@ -202,6 +205,7 @@
                   id="file"
                   name="productImages"
                   class="image-three"
+                  onhchange="previewFileHandler(this, 3)"
                 />
               </div>
               <div class="upload-img-box">
@@ -211,6 +215,7 @@
                   id="file"
                   name="productImages"
                   class="image-four"
+                  onhchange="previewFileHandler(this, 4)"
                 />
               </div>
               <div class="upload-img-box">
@@ -220,6 +225,7 @@
                   id="file"
                   name="productImages"
                   class="image-five"
+                  onhchange="previewFileHandler(this, 5)"
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
