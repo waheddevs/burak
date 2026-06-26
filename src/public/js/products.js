@@ -22,6 +22,28 @@ $(function() {
     $('#process-btn').css('display', 'flex');
   })
 
+  $('.new-product-status').on('change', async function(e) {
+    const id = e.target.id;
+    const productStatus = $(`#${id}.new-product-status`).val();
+    console.log('id:', id);
+    console.log('productStatus:', productStatus);
+
+    try {
+      const response = await axios.post(`/admin/product/${id}`, { productStatus });
+      console.log('response:', response)
+      const result = response.data;
+      if(result.data) {
+        console.log('Product updated!')
+        $('.new-product-status').blur();
+      } else alert('Product update failed!')
+
+    } catch (err) {
+      console.log(err);
+      alert('Product update failed')
+    }
+
+  })
+
 });
 
 function validateForm() {
@@ -52,11 +74,11 @@ function validateForm() {
       const imgClassName = input.className;
       console.log('input', input);
 
-      const file = $(`.${imgClassName}`)[0].get(0).files[0];
+      const file = $(`.${imgClassName}`).get(0).files[0];
       const fileType = file['type'];
       const validateImageType = ['image/jpg', 'image/jpeg', 'image/png'];
 
-      if(!validImageType.includes(fileType)) {
+      if(!validateImageType.includes(fileType)) {
             alert('Please insert only jpg, jpeg, png!')
       } else {
         if(file) {
