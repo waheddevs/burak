@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2-SESSIONS **/
-app.use( 
+app.use(
   session({
     secret: String(process.env.SESSION_SECRET),
     cookie: {
