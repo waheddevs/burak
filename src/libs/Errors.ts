@@ -5,7 +5,7 @@ export enum HttpCode {
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
   FORBIDDEN = 403,
-  NOT_FOUND = 404, 
+  NOT_FOUND = 404,
   INTERNAL_SERVER_ERROR = 500,
 }
 
@@ -17,6 +17,7 @@ export enum Message {
 
   USED_NICK_PHONE = 'You are inserting already used nick or phone!',
   NO_MEMBER_NICK = 'No member with that member nick!',
+  BLOCKED_USER = 'You have been blocked, contact restaurant!',
   WRONG_PASSWORD = 'Wrong password, please try again!',
   NOT_AUTHENTICATED = 'You are not authenticated. Please login first'
 }
