@@ -1,3 +1,39 @@
+//=========================================================================================================================================
+
+/* W-TASK
+
+Shunday function yozing, u o'ziga parametr sifatida
+yagona array va number qabul qilsin. Siz tuzgan function
+arrayni numberda berilgan uzunlikda kesib bo'laklarga
+ajratgan holatida qaytarsin.
+MASALAN: chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+return [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]];
+
+Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
+asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
+
+*/
+
+// Masalaning yechimi:
+
+function chunkArray(arr: any[], size: number): any[][] {
+    const result: any[][] = [];
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+console.log(chunkArray(["a", "b", "c", "d", "e"], 2));
+
+
+
+
+
+
+//=========================================================================================================================================
+
 /* V-TASK
 
 Shunday function yozing, uni string parametri bo'lsin.
@@ -14,6 +50,7 @@ object sifatida qaytarilmoqda.
 
 // Masalaning yechimi:
 
+/*
 function countChars(str: string): Record<string, number> {
     const counts: Record<string, number> = {};
     for (const char of str) {
@@ -23,7 +60,7 @@ function countChars(str: string): Record<string, number> {
 }
 
 console.log(countChars('butterfly'))
-
+*/
 
 
 //=========================================================================================================================================
