@@ -1,3 +1,44 @@
+/* X-TASK
+
+Shunday function yozing, uni object va string parametrlari bo'lsin.
+Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+necha marotaba takrorlanganlini sanab qaytarsin.
+
+Eslatma => Nested object'lar ham sanalsin
+
+MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+
+*/
+
+// Masalaning yechimi:
+
+function countOccurrences(obj: Record<string, any>, key: string): number {
+    let count = 0;
+    for (const k in obj) {
+        if (k === key) count++;
+        if (typeof obj[k] === 'object' && obj[k] !== null) {
+            count += countOccurrences(obj[k], key);
+        }
+    }
+    return count;
+}
+
+
+console.log(countOccurrences({ name: 'Arnold', address: { name: 'Jizzakh', district: { name: 'Qaliya' } } }, 'name'));
+
+console.log(countOccurrences({ type: 'fruit', items: { apple: { type: 'red' }, banana: { subtype: { type: 'tropical' } } } }, 'type'));
+
+
+
+
+
+
+
+
 //=========================================================================================================================================
 
 /* W-TASK
@@ -16,6 +57,7 @@ asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
 
 // Masalaning yechimi:
 
+/*
 function chunkArray(arr: any[], size: number): any[][] {
     const result: any[][] = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -26,7 +68,7 @@ function chunkArray(arr: any[], size: number): any[][] {
 
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 console.log(chunkArray(["a", "b", "c", "d", "e"], 2));
-
+*/
 
 
 
