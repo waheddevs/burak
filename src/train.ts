@@ -1,3 +1,39 @@
+/* Y-TASK
+
+Shunday function yozing, uni 2'ta array parametri bo'lsin.
+Bu function ikkala arrayda ham ishtirok etgan bir xil
+qiymatlarni yagona arrayga joylab qaytarsin.
+
+MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+joylab return qilmoqda.
+
+*/
+
+// Masalaning yechimi:
+
+function findIntersection(a: any[], b: any[]): any[] {
+    return a.filter(item => b.includes(item))
+        .filter((item, index, self) => self.indexOf(item) === index);
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+console.log(findIntersection([4, 5, 6], [6, 7, 5]));
+
+
+
+
+
+
+
+
+
+
+//=========================================================================================================================================
+
 /* X-TASK
 
 Shunday function yozing, uni object va string parametrlari bo'lsin.
@@ -16,6 +52,7 @@ tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqd
 
 // Masalaning yechimi:
 
+/*
 function countOccurrences(obj: Record<string, any>, key: string): number {
     let count = 0;
     for (const k in obj) {
@@ -29,11 +66,8 @@ function countOccurrences(obj: Record<string, any>, key: string): number {
 
 
 console.log(countOccurrences({ name: 'Arnold', address: { name: 'Jizzakh', district: { name: 'Qaliya' } } }, 'name'));
-
 console.log(countOccurrences({ type: 'fruit', items: { apple: { type: 'red' }, banana: { subtype: { type: 'tropical' } } } }, 'type'));
-
-
-
+*/
 
 
 
