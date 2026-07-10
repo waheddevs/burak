@@ -1,24 +1,20 @@
 import express from 'express';
 const router = express.Router();
 import memberController from './controllers/member.controller';
-import uploader from "./libs/utlis/uploader"
+import uploader from './libs/utlis/uploader';
 
 /** MEMBER **/
 router.post('/member/login', memberController.login);
 router.post('/member/signup', memberController.signup);
-router.post("/member/logout",
+router.post('/member/logout', memberController.verifyAuth, memberController.logout);
+router.post('/member/detail', memberController.verifyAuth, memberController.getMemberDetail);
+router.post(
+  '/member/update',
   memberController.verifyAuth,
-  memberController.logout
+  uploader('members').single('memberImage'),
+  memberController.updateMember,
 );
-router.post("/member/detail",
-  memberController.verifyAuth,
-  memberController.getMemberDetail
-);
-router.post("/member/update",
-  memberController.verifyAuth,
-  uploader("members").single("memberImage"),
-  memberController.updateMember
-)
+router.get('/member/top-users', memberController.getTopUsers);
 
 /** PRODUCT **/
 
