@@ -2,8 +2,10 @@ import express from 'express';
 const router = express.Router();
 import memberController from './controllers/member.controller';
 import uploader from './libs/utlis/uploader';
+import restaurantController from './controllers/restaurant.controller';
 
 /** MEMBER **/
+router.get('/member/restaurant', memberController.getRestaurant);
 router.post('/member/login', memberController.login);
 router.post('/member/signup', memberController.signup);
 router.post('/member/logout', memberController.verifyAuth, memberController.logout);
