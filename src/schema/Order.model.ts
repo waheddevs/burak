@@ -3,7 +3,7 @@ import { OrderStatus } from '../libs/enums/order.enum';
 
 const orderSchema = new Schema(
   {
-    orderTotal: { type: Number, ruqiured: true },
+    orderTotal: { type: Number, required: true },
 
     orderDelivery: {
       type: Number,
@@ -12,12 +12,13 @@ const orderSchema = new Schema(
 
     orderStatus: {
       type: String,
-      enum: OrderStatus.PAUSE,
+      enum: Object.values(OrderStatus),
+      default: OrderStatus.PAUSE,
     },
 
     memberId: {
       type: Schema.Types.ObjectId,
-      reuqired: true,
+      required: true,
       ref: 'Member',
     },
   },
